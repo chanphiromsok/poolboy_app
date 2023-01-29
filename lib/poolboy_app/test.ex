@@ -10,7 +10,8 @@ defmodule PoolboyApp.Test do
   defp async_call_square_root(i) do
     Task.async(fn ->
       :poolboy.transaction(
-        :worker,
+        # must be the same as def poolboy_config in application.ex
+        :pool_worker_app,
         fn pid ->
           # Let's wrap the genserver call in a try - catch block. This allows us to trap any exceptions
           # that might be thrown and return the worker back to poolboy in a clean manner. It also allows

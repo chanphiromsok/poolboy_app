@@ -7,7 +7,7 @@ defmodule PoolboyApp.Application do
 
   def poolboy_config do
     [
-      name: {:local,:worker},
+      name: {:local,:pool_worker_app},
       worker_module: PoolboyApp.Worker,
       size: 5,
       max_overflow: 2
